@@ -2,7 +2,7 @@ package main;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         //-----------------Initialisation--------------------------------//
         int grillX =10; int grillY =10; // Dimension de la grille
@@ -19,11 +19,11 @@ public class Main {
     }
 
     // la finction qui applique les instructions sur l'objet aspirateur
-    public static Aspirateur aspirateurTravel(String s, Aspirateur aspirateur, int grillX ,int grillY){
+    public static Aspirateur aspirateurTravel(String s, Aspirateur aspirateur, int grillX ,int grillY) throws Exception {
 
         for (int i = 0; i <s.length() ; i++) {
             if (s.charAt(i) == 'A'){
-                moveAspirateur(aspirateur);  // si on trouve instruction A, on fait avancer l'aspirateur.
+                moveAspirateur(aspirateur, grillX,grillY);  // si on trouve instruction A, on fait avancer l'aspirateur.
             }else{
                 // Sinon change la direction en suivant l'instruction.
                 aspirateur.setD(changeDirection(s.charAt(i), aspirateur.getD()));
@@ -81,10 +81,12 @@ public class Main {
 
 
     // fonction qui fait avancer l'aspirateur.
-    public static void moveAspirateur(Aspirateur aspirateur){
+    public static void moveAspirateur(Aspirateur aspirateur,int grillX ,int grillY) throws Exception {
         if (aspirateur.getD() == 'S'){ aspirateur.setY(aspirateur.getY()-1); }
         if (aspirateur.getD() == 'N'){ aspirateur.setY(aspirateur.getY()+1); }
         if (aspirateur.getD() == 'E'){ aspirateur.setX(aspirateur.getX()+1); }
         if (aspirateur.getD() == 'W'){ aspirateur.setX(aspirateur.getX()-1); }
+        if (aspirateur.getX() > grillX || aspirateur.getX() < 0) throw new Exception("La position de l'aspirateur à dépasser la dimension de le grill");
+        if (aspirateur.getY() > grillY || aspirateur.getY() < 0) throw new Exception("La position de l'aspirateur à dépasser la dimension de le grill");
     }
 }
