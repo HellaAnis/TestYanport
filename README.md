@@ -16,7 +16,7 @@ Donc voici l'initialisation du test1 :
 et on va avoir un résultat d'une matrice qui nous affiche la nouvelle position de l'aspirateur :
 
 La grill apres le parcours d'instructions DADADADAA
-
+//
 10 . . . . . . . . . . 
 9 . . . . . . . . . . 
 8 . . . . . . . . . . 
@@ -27,7 +27,8 @@ La grill apres le parcours d'instructions DADADADAA
 3 . . . . . . . . . . 
 2 . . . . . . . . . . 
 1 . . . . . . . . . . 
-0 1 2 3 4 5 6 7 8 9 10 
+0 1 2 3 4 5 6 7 8 9 10
+//
 
 Aspirateur position = Aspirateur{x=5, y=6, direction=N}
     
